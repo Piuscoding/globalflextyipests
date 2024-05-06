@@ -5,7 +5,6 @@ const fileUpload = require('express-fileupload')
 const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
 const connectFlash = require('connect-flash');
-const session = require('express-session');
 const { requireAuth, checkUser } = require('./server/authMiddleware/authMiddleware');
 
 
@@ -34,28 +33,7 @@ mongoose.connect(db)
 })
 .catch(err =>{console.log(err)})
 
-// const MongoStore = new connectMongo(session);
-// Init Session
-app.use(
-  session({
-    secret:'secret',
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      // secure: true,
-      httpOnly: true,
-    },
-    // store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  })
-);
 
-// Connect Flash
-app.use(connectFlash());
-
-app.use((req, res, next) => {
-  res.locals.messages = req.flash();
-  next();
-});
 
 
 app.get('*', checkUser);

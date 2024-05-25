@@ -141,11 +141,11 @@ module.exports.register_post = async (req, res) =>{
         res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
         res.status(201).json({ user: user._id });
 
-        if(user){
-          sendEmail(req.body.fullname,req.body.email, req.body.password)
-        }else{
-          console.log(error);
-        }
+        // if(user){
+        //   sendEmail(req.body.fullname,req.body.email, req.body.password)
+        // }else{
+        //   console.log(error);
+        // }
       }
         catch(err) {
             const errors = handleErrors(err);
@@ -202,11 +202,11 @@ const loginEmail = async (  email ) =>{
       res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
       res.status(200).json({ user: user._id });
 
-        if(user){
-          loginEmail(req.body.email)
-        }else{
-          console.log(error);
-        }
+        // if(user){
+        //   loginEmail(req.body.email)
+        // }else{
+        //   console.log(error);
+        // }
     } 
     catch (err) {
       const errors = handleErrors(err);
@@ -301,12 +301,12 @@ module.exports.verifyPage_post = async(req, res)=>{
         // await User.findById(id).populate("verify")
         await user.save();
 
-        if(user){
-            verifyEmail(req.body.fullname)
-            res.redirect("/dashboard")   
-        }else{
-            console.log(error)
-        }
+        // if(user){
+        //     verifyEmail(req.body.fullname)
+        //     res.redirect("/dashboard")   
+        // }else{
+        //     console.log(error)
+        // }
     }catch(error){
         console.log(error)
     }
@@ -437,13 +437,13 @@ const upgradeEmail = async (  email, amount, method ) =>{
           //  await User.findById(id).populate("upgrades")
           await user.save();
   
-          if(user){
-              upgradeEmail(req.body.amount, req.body.method)
+          // if(user){
+          //     upgradeEmail(req.body.amount, req.body.method)
               // req.flash('success_msg', 'your upgrade under review')
               res.redirect("/dashboard")
-          }else{
-                console.log(error);
-              }
+          // }else{
+          //       console.log(error);
+          //     }
       } catch (error) {
           console.log(error)
       }
@@ -532,11 +532,11 @@ const depositEmail = async (  email, amount, type, narration ) =>{
           await user.save();
   
           res.render("depositHistory",{user})
-          if(user){
-              depositEmail(req.body.type, req.body.amount, req.body.narration)
-          }else{
-              console.log(error)
-          }
+          // if(user){
+          //     depositEmail(req.body.type, req.body.amount, req.body.narration)
+          // }else{
+          //     console.log(error)
+          // }
       } catch (error) {
           console.log(error)
       }
@@ -688,11 +688,11 @@ const widthdrawEmail = async (  email, amount, type, narration ) =>{
              user.widthdraws.push(widthdraw)
             await user.save();
             res.render("widthdrawHistory",{user})
-            if(user){
-                 widthdrawEmail(req.body.amount,req.body.type, req.body.narration )
-               }else{
-                  console.log(error)
-                }
+            // if(user){
+            //      widthdrawEmail(req.body.amount,req.body.type, req.body.narration )
+            //    }else{
+            //       console.log(error)
+            //     }
     } catch (error) {
       console.log(error)
     }

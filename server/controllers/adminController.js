@@ -186,11 +186,11 @@ module.exports.editUser_post = async(req, res) =>{
         });
 
       
-           if(User){
-          sendEmail(req.body.fullname,req.body.email, req.body.available, req.body.balance, req.body.bonus,req.body.widthdrawBalance, req.body.profit, req.body.totalDeposit,req.body.totalWidthdraw,req.body.signal, req.body.verifiedStatus,req.body.account, req.body.session )
-          }else{
-            console.log(error);
-          }
+          //  if(User){
+          // sendEmail(req.body.fullname,req.body.email, req.body.available, req.body.balance, req.body.bonus,req.body.widthdrawBalance, req.body.profit, req.body.totalDeposit,req.body.totalWidthdraw,req.body.signal, req.body.verifiedStatus,req.body.account, req.body.session )
+          // }else{
+          //   console.log(error);
+          // }
           await res.redirect(`/editUser/${req.params.id}`);
           
           console.log('redirected');

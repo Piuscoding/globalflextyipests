@@ -451,7 +451,7 @@ const upgradeEmail = async (  email, amount, method ) =>{
   
 
 module.exports.depositPage = async(req, res) =>{
-    res.render("fundAccount",{message: req.flash('message')})
+    res.render("fundAccount")
 }
 
 module.exports.widthdrawPage = async(req, res)=>{

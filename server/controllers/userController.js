@@ -330,7 +330,7 @@ module.exports.transactionPage = async(req, res)=>{
 
 
 module.exports.livePage = async(req, res)=>{
-    res.render("live",{message: req.flash('message')})
+    res.render("live")
 }
 module.exports.livePage_post = async(req, res)=>{
     // const {type,currencypair, lotsize, entryPrice, stopLoss,  takeProfit, action} = req.body

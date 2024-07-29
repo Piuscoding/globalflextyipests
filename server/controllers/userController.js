@@ -455,7 +455,7 @@ module.exports.depositPage = async(req, res) =>{
 }
 
 module.exports.widthdrawPage = async(req, res)=>{
-    res.render("widthdrawFunds", {message: req.flash('message')})
+    res.render("widthdrawFunds")
 }
 
 
